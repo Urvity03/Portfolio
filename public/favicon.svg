@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Warm ivory background circle -->
+  <rect width="32" height="32" rx="8" fill="#FFF9F5" />
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="#EFE6DE" />
+  
+  <!-- Subtle computational lattice grid vectors -->
+  <line x1="6" y1="16" x2="26" y2="16" stroke="#E8A7B5" stroke-width="0.5" stroke-dasharray="1 2" opacity="0.4" />
+  <line x1="16" y1="6" x2="16" y2="26" stroke="#E8A7B5" stroke-width="0.5" stroke-dasharray="1 2" opacity="0.4" />
+  
+  <!-- Sakura Petals -->
+  <ellipse cx="16" cy="11" rx="2.6" ry="4.2" fill="#E8A7B5" opacity="0.85" />
+  <ellipse cx="20" cy="14" rx="2.6" ry="4.2" transform="rotate(72 20 14)" fill="#E8A7B5" opacity="0.85" />
+  <ellipse cx="18.5" cy="19.5" rx="2.6" ry="4.2" transform="rotate(144 18.5 19.5)" fill="#E8A7B5" opacity="0.85" />
+  <ellipse cx="13.5" cy="19.5" rx="2.6" ry="4.2" transform="rotate(216 13.5 19.5)" fill="#E8A7B5" opacity="0.85" />
+  <ellipse cx="12" cy="14" rx="2.6" ry="4.2" transform="rotate(288 12 14)" fill="#E8A7B5" opacity="0.85" />
+  
+  <!-- AI Geometric Center Node & Core -->
+  <circle cx="16" cy="15.5" r="2.2" fill="#465640" />
+  <circle cx="16" cy="15.5" r="0.8" fill="#FFF9F5" />
+  
+  <!-- Small tech coordinate dots and neural connections -->
+  <circle cx="8" cy="8" r="1" fill="#879B72" opacity="0.7" />
+  <circle cx="24" cy="24" r="1" fill="#879B72" opacity="0.7" />
+  <circle cx="24" cy="8" r="0.75" fill="#B86B7A" opacity="0.6" />
+  <line x1="16" y1="15.5" x2="24" y2="24" stroke="#879B72" stroke-width="0.6" stroke-dasharray="1 1" opacity="0.6" />
+  <line x1="16" y1="15.5" x2="8" y2="8" stroke="#879B72" stroke-width="0.6" stroke-dasharray="1 1" opacity="0.6" />
+</svg>

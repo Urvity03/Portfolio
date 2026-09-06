@@ -1,0 +1,612 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #FFF9F5;
+  --color-canvas-subtle: #FAF2EC;
+  --color-canvas-card: #FDFBF8;
+  --color-sakura: #E8A7B5;
+  --color-sakura-soft: #F3C7D1;
+  --color-sakura-pale: #F9E6EA;
+  --color-sakura-deep: #B86B7A;
+  --color-lavender: #C9B8D8;
+  --color-lavender-soft: #DCCFE5;
+  --color-lavender-pale: #EEE8F2;
+  --color-matcha: #879B72;
+  --color-matcha-pale: #DCE5D2;
+  --color-matcha-deep: #465640;
+  --color-ink: #292725;
+  --color-ink-muted: #615A54;
+  --color-border: #EFE5DC;
+}
+
+@layer base {
+  html {
+    background-color: #FFF9F5;
+    color: #292725;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFF9F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #DFC3CB;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B86B7A;
+  }
+}
+
+/* Atmospheric whole-page pastel background wash */
+.page-atmosphere {
+  background-color: #FFF9F5;
+  background-image: 
+    radial-gradient(ellipse 65% 50% at 12% 15%, rgba(243, 199, 209, 0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 55% at 88% 35%, rgba(220, 207, 229, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 50% at 20% 65%, rgba(220, 229, 210, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 85% 85%, rgba(243, 199, 209, 0.15) 0%, transparent 70%);
+}
+
+/* Project Card Pastel Glass Style */
+.project-card-pastel {
+  background: linear-gradient(
+    135deg,
+    rgba(243, 199, 209, 0.30),
+    rgba(238, 232, 242, 0.24),
+    rgba(220, 229, 210, 0.16)
+  );
+  border: 1px solid rgba(232, 167, 181, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(232, 167, 181, 0.12), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 500ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card-pastel:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(184, 107, 122, 0.55);
+  box-shadow: 0 16px 36px -12px rgba(184, 107, 122, 0.18), 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* Botanical subtle breeze animation */
+@keyframes botanicalBreeze {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  35% {
+    transform: translate(2px, -1px) rotate(0.4deg);
+  }
+  70% {
+    transform: translate(-1px, 1px) rotate(-0.3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.animate-botanical-breeze {
+  animation: botanicalBreeze 16s ease-in-out infinite;
+}
+
+/* Organic Petal Drift Animations */
+@keyframes petalDriftA {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(24px, 45vh, 0) rotate(70deg);
+    opacity: 0.65;
+  }
+  75% {
+    transform: translate3d(-12px, 75vh, 0) rotate(115deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(18px, 105vh, 0) rotate(160deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalDriftB {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(20deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.65;
+  }
+  45% {
+    transform: translate3d(-28px, 40vh, 0) rotate(-45deg);
+    opacity: 0.6;
+  }
+  70% {
+    transform: translate3d(16px, 70vh, 0) rotate(-90deg);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(-18px, 105vh, 0) rotate(-140deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalDriftC {
+  0% {
+    transform: translate3d(0, -5vh, 0) rotate(-15deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  55% {
+    transform: translate3d(20px, 50vh, 0) rotate(50deg);
+    opacity: 0.55;
+  }
+  80% {
+    transform: translate3d(35px, 80vh, 0) rotate(100deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate3d(10px, 105vh, 0) rotate(150deg);
+    opacity: 0;
+  }
+}
+
+/* Soft Bubble Floating Animation */
+@keyframes bubbleFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate3d(4px, -12px, 0);
+  }
+  66% {
+    transform: translate3d(-3px, 5px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Hero-Specific Minimal Petal & Bubble Animations (Hero Only) */
+@keyframes heroBubble1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(6px, -12px, 0);
+  }
+}
+
+@keyframes heroBubble2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-5px, 10px, 0);
+  }
+}
+
+/* Exactly 8 Falling Sakura Petals (Full-Height Hero Physical Float: 100–130vh Vertical Travel) */
+@keyframes heroFallingPetal1 {
+  0% {
+    transform: translate3d(0, -16vh, 0) rotate(-10deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.48;
+  }
+  25% {
+    transform: translate3d(14px, 18vh, 0) rotate(6deg);
+  }
+  50% {
+    transform: translate3d(-6px, 54vh, 0) rotate(22deg);
+  }
+  75% {
+    transform: translate3d(16px, 88vh, 0) rotate(34deg);
+  }
+  92% {
+    opacity: 0.48;
+  }
+  100% {
+    transform: translate3d(8px, 124vh, 0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal2 {
+  0% {
+    transform: translate3d(0, -18vh, 0) rotate(12deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.42;
+  }
+  28% {
+    transform: translate3d(-15px, 22vh, 0) rotate(-6deg);
+  }
+  55% {
+    transform: translate3d(8px, 58vh, 0) rotate(-22deg);
+  }
+  78% {
+    transform: translate3d(-12px, 92vh, 0) rotate(-34deg);
+  }
+  92% {
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate3d(-5px, 126vh, 0) rotate(-42deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal3 {
+  0% {
+    transform: translate3d(0, -14vh, 0) rotate(-8deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.52;
+  }
+  30% {
+    transform: translate3d(10px, 24vh, 0) rotate(12deg);
+  }
+  60% {
+    transform: translate3d(-10px, 62vh, 0) rotate(26deg);
+  }
+  80% {
+    transform: translate3d(12px, 94vh, 0) rotate(38deg);
+  }
+  92% {
+    opacity: 0.52;
+  }
+  100% {
+    transform: translate3d(4px, 122vh, 0) rotate(48deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal4 {
+  0% {
+    transform: translate3d(0, -17vh, 0) rotate(15deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.38;
+  }
+  26% {
+    transform: translate3d(-18px, 19vh, 0) rotate(-4deg);
+  }
+  52% {
+    transform: translate3d(6px, 55vh, 0) rotate(-18deg);
+  }
+  76% {
+    transform: translate3d(-14px, 89vh, 0) rotate(-30deg);
+  }
+  92% {
+    opacity: 0.38;
+  }
+  100% {
+    transform: translate3d(-8px, 125vh, 0) rotate(-38deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal5 {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(-12deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.45;
+  }
+  32% {
+    transform: translate3d(16px, 26vh, 0) rotate(8deg);
+  }
+  62% {
+    transform: translate3d(-8px, 64vh, 0) rotate(20deg);
+  }
+  82% {
+    transform: translate3d(14px, 95vh, 0) rotate(32deg);
+  }
+  92% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(6px, 123vh, 0) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal6 {
+  0% {
+    transform: translate3d(0, -16vh, 0) rotate(10deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.40;
+  }
+  27% {
+    transform: translate3d(-14px, 21vh, 0) rotate(-8deg);
+  }
+  54% {
+    transform: translate3d(8px, 57vh, 0) rotate(-20deg);
+  }
+  78% {
+    transform: translate3d(-10px, 91vh, 0) rotate(-32deg);
+  }
+  92% {
+    opacity: 0.40;
+  }
+  100% {
+    transform: translate3d(-4px, 124vh, 0) rotate(-40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal7 {
+  0% {
+    transform: translate3d(0, -15vh, 0) rotate(-14deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.46;
+  }
+  29% {
+    transform: translate3d(12px, 23vh, 0) rotate(10deg);
+  }
+  58% {
+    transform: translate3d(-6px, 60vh, 0) rotate(24deg);
+  }
+  80% {
+    transform: translate3d(15px, 93vh, 0) rotate(36deg);
+  }
+  92% {
+    opacity: 0.46;
+  }
+  100% {
+    transform: translate3d(8px, 125vh, 0) rotate(44deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heroFallingPetal8 {
+  0% {
+    transform: translate3d(0, -18vh, 0) rotate(8deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.36;
+  }
+  31% {
+    transform: translate3d(-12px, 25vh, 0) rotate(-10deg);
+  }
+  60% {
+    transform: translate3d(10px, 63vh, 0) rotate(-24deg);
+  }
+  82% {
+    transform: translate3d(-8px, 95vh, 0) rotate(-34deg);
+  }
+  92% {
+    opacity: 0.36;
+  }
+  100% {
+    transform: translate3d(-2px, 126vh, 0) rotate(-42deg);
+    opacity: 0;
+  }
+}
+
+/* Breathing Atmospheric Layers (Sakura Pink, Pale Lavender, Subtle Matcha Whisper) */
+@keyframes heroAtmospherePink {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.055;
+  }
+  50% {
+    transform: translate3d(8px, 6px, 0) scale(1.04);
+    opacity: 0.10;
+  }
+}
+
+@keyframes heroAtmosphereLavender {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.035;
+  }
+  50% {
+    transform: translate3d(-6px, -6px, 0) scale(1.035);
+    opacity: 0.075;
+  }
+}
+
+@keyframes heroAtmosphereMatcha {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.030;
+  }
+  50% {
+    transform: translate3d(6px, -5px, 0) scale(1.03);
+    opacity: 0.060;
+  }
+}
+
+/* Subtle AI Geometry Node and Line Pulses */
+@keyframes geometryPulseNode {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.18;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes geometryPulseLine {
+  0%, 100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.12;
+  }
+}
+
+/* Soft Light Sparkle / Particle Glow */
+@keyframes lightGlow {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.2);
+  }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-botanical-breeze {
+    animation: none !important;
+  }
+  .scene-perspective,
+  .preserve-3d {
+    perspective: none !important;
+    transform-style: flat !important;
+  }
+}
+
+/* ==========================================================================
+   SPATIAL 3D DEPTH SYSTEM (Restrained Editorial Depth: 95% Stillness, 5% Motion)
+   ========================================================================== */
+
+.scene-perspective {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.depth-layer-base {
+  transform: translateZ(0px);
+}
+
+.depth-layer-subtle {
+  transform: translateZ(6px);
+}
+
+.depth-layer-mid {
+  transform: translateZ(14px);
+}
+
+.depth-layer-foreground {
+  transform: translateZ(22px);
+}
+
+.depth-relief-0 {
+  transform: translateZ(0px);
+}
+
+.depth-relief-1 {
+  transform: translateZ(2px);
+}
+
+.depth-relief-2 {
+  transform: translateZ(4px);
+}
+
+.depth-relief-3 {
+  transform: translateZ(6px);
+}
+
+.depth-relief-4 {
+  transform: translateZ(8px);
+}
+
+/* ==========================================================================
+   INTERACTIVE PHYSICAL FEEDBACK (Pop / Lift / Click Press)
+   ========================================================================== */
+
+/* Text Lift: lifts text toward viewer on hover without causing layout shifts */
+.text-hover-pop {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 320ms cubic-bezier(0.2, 0.9, 0.3, 1), color 250ms ease;
+  will-change: transform;
+}
+.text-hover-pop:hover {
+  transform: translateZ(12px) scale(1.02) translateY(-2px);
+}
+
+/* Button & Interactive Element Physical Press / Pop */
+.interactive-pop {
+  transform-style: preserve-3d;
+  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.3, 1), box-shadow 280ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  will-change: transform;
+}
+.interactive-pop:hover {
+  transform: translateZ(14px) scale(1.02) translateY(-2px);
+}
+.interactive-pop:active {
+  transform: translateZ(-4px) scale(0.97) translateY(0px) !important;
+  transition-duration: 80ms !important;
+}
+
+/* Nav Link Lift */
+.nav-link-pop {
+  display: inline-flex;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 250ms cubic-bezier(0.2, 0.9, 0.3, 1), color 200ms ease;
+  will-change: transform;
+}
+.nav-link-pop:hover {
+  transform: translateZ(10px) translateY(-1.5px) scale(1.02);
+}
+.nav-link-pop:active {
+  transform: translateZ(-3px) scale(0.97) !important;
+  transition-duration: 80ms !important;
+}
+
+/* Certification row hover: translateY(-4px) translateZ(15px) scale(1.015) */
+.cert-row-pop {
+  transform-style: preserve-3d;
+  transition: transform 300ms cubic-bezier(0.2, 0.9, 0.3, 1), background-color 250ms ease;
+  will-change: transform;
+}
+.cert-row-pop:hover {
+  transform: translateY(-4px) translateZ(15px) scale(1.015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-hover-pop:hover,
+  .interactive-pop:hover,
+  .interactive-pop:active,
+  .nav-link-pop:hover,
+  .nav-link-pop:active,
+  .cert-row-pop:hover {
+    transform: none !important;
+  }
+}
+
