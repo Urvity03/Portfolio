@@ -384,7 +384,7 @@ export const DigitalGarden: React.FC = () => {
               scale: calScale,
               transformStyle: 'preserve-3d'
             }}
-            className="lg:col-span-5 p-6 rounded-2xl border border-[#EBE2DA] bg-[#FFF9F5] space-y-5 shadow-[0_2px_12px_rgba(0,0,0,0.02)] relative preserve-3d transition-all duration-300 hover:shadow-[0_12px_32px_rgba(41,39,37,0.06)] will-change-transform"
+            className="lg:col-span-5 p-6 rounded-2xl border border-[#EBE2DA] bg-[#FFF9F5] space-y-5 shadow-[0_2px_12px_rgba(0,0,0,0.02)] relative preserve-3d transition-all duration-300 hover:shadow-[0_12px_32px_rgba(41,39,37,0.06)] will-change-transform max-w-full overflow-hidden"
           >
             <div className="flex items-center justify-between font-mono text-xs">
               <span className="uppercase tracking-wider text-[#615A54] font-semibold">

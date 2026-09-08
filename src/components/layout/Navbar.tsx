@@ -14,6 +14,17 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   const navLinks = [
     { label: 'ABOUT', href: '#about' },
     { label: 'WORK', href: '#work' },
@@ -59,7 +70,7 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Area: Understated Resume Link */}
+          {/* Right Area: Understated Resume Link (Desktop & Tablet) */}
           <div className="hidden sm:flex items-center gap-6">
             <a
               href={SITE_CONFIG.resumePdf}
@@ -72,49 +83,51 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-3">
-            <a
-              href={SITE_CONFIG.resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-mono tracking-wider text-ink"
-            >
-              RESUME →
-            </a>
+          {/* Mobile / Tablet Menu Button (Visible up to lg breakpoint) */}
+          <div className="flex lg:hidden items-center gap-2 sm:gap-4">
+            <div className="sm:hidden">
+              <a
+                href={SITE_CONFIG.resumePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono tracking-wider text-ink px-2 py-2 min-h-[44px] flex items-center hover:text-sakura-deep transition-colors"
+              >
+                RESUME ↗
+              </a>
+            </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-1.5 text-ink focus:outline-none"
+              className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-ink hover:text-sakura-deep focus:outline-none transition-colors"
               aria-label="Toggle navigation menu"
             >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile / Tablet Drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 top-[65px] z-30 bg-canvas/98 backdrop-blur-lg lg:hidden p-8 flex flex-col justify-between border-t border-ink-divider/40 animate-fade-in">
-          <nav className="flex flex-col space-y-6 text-sm font-mono tracking-widest text-ink pt-4">
+        <div className="fixed inset-x-0 top-[64px] bottom-0 z-50 bg-[#FFF9F5] lg:hidden p-6 sm:p-8 flex flex-col justify-between border-t border-ink-divider/40 overflow-y-auto animate-fade-in">
+          <nav className="flex flex-col space-y-1 text-sm font-mono tracking-widest text-ink pt-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="hover:text-sakura-deep py-1 border-b border-ink-divider/30 transition-colors duration-250"
+                className="hover:text-sakura-deep py-3 min-h-[44px] flex items-center border-b border-ink-divider/30 transition-colors duration-250"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="space-y-4 pt-8 border-t border-ink-divider/40">
+          <div className="space-y-4 pt-6 border-t border-ink-divider/40">
             <a
               href={SITE_CONFIG.resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono tracking-widest text-ink hover:text-sakura-deep"
+              className="inline-flex items-center gap-1.5 text-xs font-mono tracking-widest text-ink hover:text-sakura-deep min-h-[44px]"
             >
               <span>VIEW RESUME</span>
               <ArrowUpRight size={13} />

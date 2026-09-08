@@ -130,18 +130,18 @@ export const HeroSection: React.FC = () => {
       id="home"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[95vh] lg:min-h-screen flex flex-col justify-center pt-32 pb-24 px-6 sm:px-12 max-w-6xl mx-auto w-full scene-perspective"
+      className="relative min-h-[95vh] lg:min-h-screen flex flex-col justify-center pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24 px-5 sm:px-8 lg:px-12 max-w-6xl mx-auto w-full scene-perspective overflow-x-clip"
     >
-      {/* Editorial Section Number Marker: 01 */}
-      <div className="hidden lg:flex absolute -left-8 sm:-left-14 top-36 flex-col items-center select-none" aria-hidden="true">
+      {/* Editorial Section Number Marker: 01 (Visible on large desktop with ample horizontal breathing room) */}
+      <div className="hidden xl:flex absolute -left-10 xl:-left-14 top-36 flex-col items-center select-none pointer-events-none" aria-hidden="true">
         <div className="w-6 h-6 rounded-full border border-[#EBE2DA] bg-[#FFF9F5] flex items-center justify-center text-[10px] font-mono text-[#B86B7A] font-medium shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
           01
         </div>
         <div className="w-px h-32 bg-gradient-to-b from-[#EBE2DA] to-transparent mt-2" />
       </div>
 
-      {/* Top-Right Side Tagline */}
-      <div className="hidden md:block absolute right-6 sm:right-12 top-28 sm:top-36 font-mono text-[9px] tracking-[0.28em] text-[#615A54]/80 uppercase leading-relaxed text-right select-none" aria-hidden="true">
+      {/* Top-Right Side Tagline (Visible on xl displays) */}
+      <div className="hidden xl:block absolute right-8 top-36 font-mono text-[9px] tracking-[0.28em] text-[#615A54]/80 uppercase leading-relaxed text-right select-none pointer-events-none" aria-hidden="true">
         TURNING<br />CURIOSITY<br />INTO<br />IMPACT
       </div>
 
@@ -257,37 +257,69 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Main Hero Content Layout */}
+      {/* Main Hero Content Layout */}
       <div 
         style={{ transformStyle: 'preserve-3d' }}
-        className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-center gap-6 lg:gap-8 xl:gap-10 max-w-5xl xl:max-w-[1080px] mx-auto w-full pt-4 sm:pt-0"
+        className="relative z-10 flex flex-col md:flex-row items-center justify-between lg:justify-center gap-8 md:gap-6 lg:gap-8 xl:gap-12 max-w-5xl xl:max-w-[1080px] mx-auto w-full pt-2 sm:pt-4 md:pt-0"
       >
         {/* LEFT COLUMN: Metadata, Display Heading, Statement, CTAs, Direct Links - Layer 2 (Depth: translateZ(0)) */}
         <motion.div 
           style={{ x: contentX, y: contentY, transformStyle: 'preserve-3d' }}
-          className="space-y-8 sm:space-y-10 max-w-xl lg:max-w-[470px] xl:max-w-[500px] shrink-0"
+          className="space-y-6 sm:space-y-8 md:space-y-7 lg:space-y-10 max-w-xl md:max-w-[360px] lg:max-w-[470px] xl:max-w-[500px] shrink-0 w-full md:w-auto"
         >
           {/* Top: Header metadata with subtle Matcha accent dot */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#615A54] uppercase"
+            className="flex items-start sm:items-center gap-2 text-[10px] sm:text-xs font-mono tracking-wider sm:tracking-widest text-[#615A54] uppercase max-w-full"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#879B72]/70 inline-block" />
-            <span>AI &amp; ML UNDERGRADUATE • ASPIRING ML ENGINEER • NLP • GENAI • PYTHON • TENSORFLOW • STREAMLIT</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#879B72]/70 shrink-0 mt-1 sm:mt-0 inline-block" />
+            <span className="leading-normal sm:leading-relaxed">
+              AI &amp; ML UNDERGRADUATE • ASPIRING ML ENGINEER • NLP • GENAI • PYTHON • TENSORFLOW • STREAMLIT
+            </span>
           </motion.div>
 
-          {/* Large Display Heading: Urvi (charcoal) Tyagi (deep Sakura) with text-hover-pop */}
+          {/* Large Display Heading: Urvi (charcoal) Tyagi (deep Sakura) with text-hover-pop-block */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-0 select-none preserve-3d"
           >
-            <h1 className="font-serif text-6xl sm:text-8xl md:text-9xl lg:text-[9.5rem] font-light tracking-tight leading-[0.9]">
-              <span className="text-[#292725] block text-hover-pop">Urvi</span>
-              <span className="text-[#B86B7A] block text-hover-pop">Tyagi</span>
+            <h1 className="font-serif text-5xl sm:text-7xl md:text-7xl lg:text-[9.2rem] xl:text-[9.5rem] font-light tracking-tight leading-[0.92] flex flex-col items-start w-full select-none">
+              <span className="text-[#292725] text-hover-pop-block block">Urvi</span>
+              <span className="text-[#B86B7A] text-hover-pop-block block">Tyagi</span>
             </h1>
+          </motion.div>
+
+          {/* Mobile Portrait Integration: Heroic placement on < md screens directly with typography */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden relative my-4 sm:my-6 flex items-center justify-center select-none py-2 w-full"
+          >
+            {/* Soft pink circular atmospheric aura */}
+            <div 
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[290px] h-[250px] sm:h-[290px] max-w-[80vw] max-h-[80vw] rounded-full bg-[radial-gradient(circle,rgba(243,199,209,0.14)_0%,rgba(243,199,209,0.08)_60%,rgba(243,199,209,0.02)_85%,transparent_100%)] blur-md pointer-events-none z-0"
+              aria-hidden="true"
+            />
+            {/* Authentic Real Photo Cutout */}
+            <img
+              src={urviPortrait}
+              alt="Urvi Tyagi"
+              className="relative z-10 w-[220px] sm:w-[260px] max-w-[75vw] h-auto object-contain drop-shadow-none pointer-events-none"
+              loading="eager"
+            />
+            {/* Handwritten Editorial Accent */}
+            <div className="absolute right-1 sm:right-6 top-[28%] -translate-y-1/2 pointer-events-none select-none z-20">
+              <img
+                src={handwrittenAccent}
+                alt="Same girl Bigger dreams"
+                className="w-[85px] sm:w-[105px] object-contain drop-shadow-none"
+              />
+            </div>
           </motion.div>
 
           {/* Personal Statement */}
@@ -295,23 +327,23 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl space-y-3"
+            className="max-w-xl md:max-w-md lg:max-w-2xl space-y-3"
           >
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl text-[#292725] font-light leading-relaxed text-hover-pop">
+            <p className="font-serif text-lg sm:text-xl md:text-xl lg:text-3xl text-[#292725] font-light leading-relaxed text-hover-pop">
               I build intelligent things with curiosity, code &amp; creativity.
             </p>
           </motion.div>
 
-          {/* Buttons Row: EXPLORE MY WORK ↓ & VIEW RESUME with interactive-pop */}
+          {/* Buttons Row: EXPLORE MY WORK ↓ & VIEW RESUME with interactive-pop and comfortable tap targets */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-4 sm:gap-6 pt-1"
+            className="flex flex-wrap items-center gap-3 sm:gap-6 pt-1"
           >
             <a
               href="#work"
-              className="inline-flex items-center gap-2 border border-[#292725] px-6 py-3.5 text-xs font-mono tracking-widest text-[#292725] hover:bg-[#292725] hover:text-[#FFF9F5] interactive-pop group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 border border-[#292725] px-5 sm:px-6 py-3 sm:py-3.5 min-h-[44px] text-xs font-mono tracking-widest text-[#292725] hover:bg-[#292725] hover:text-[#FFF9F5] interactive-pop group cursor-pointer"
             >
               <span>EXPLORE MY WORK</span>
               <ArrowDown size={14} className="transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -321,25 +353,25 @@ export const HeroSection: React.FC = () => {
               href={SITE_CONFIG.resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-3.5 text-xs font-mono tracking-widest text-[#292725] hover:text-[#B86B7A] interactive-pop group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-3 py-3 sm:py-3.5 min-h-[44px] text-xs font-mono tracking-widest text-[#292725] hover:text-[#B86B7A] interactive-pop group cursor-pointer"
             >
               <FileText size={16} className="text-[#292725] group-hover:text-[#B86B7A] transition-colors" />
               <span>VIEW RESUME</span>
             </a>
           </motion.div>
 
-          {/* Direct Links Row: LINKEDIN ↗, GITHUB ↗, EMAIL ME ↗ with nav-link-pop */}
+          {/* Direct Links Row: LINKEDIN ↗, GITHUB ↗, EMAIL ME ↗ with comfortable tap targets */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-7 sm:gap-9 pt-3"
+            className="flex flex-wrap items-center gap-5 sm:gap-7 md:gap-6 lg:gap-9 pt-2 sm:pt-3"
           >
             <a
               href="https://www.linkedin.com/in/urvi-tyagi026/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-sans tracking-[0.18em] text-[#292725] hover:text-[#B86B7A] uppercase nav-link-pop group cursor-pointer"
+              className="inline-flex items-center gap-1.5 min-h-[44px] py-1 text-xs font-sans tracking-[0.16em] sm:tracking-[0.18em] text-[#292725] hover:text-[#B86B7A] uppercase nav-link-pop group cursor-pointer"
             >
               <LinkedinIcon size={14} className="transition-transform duration-250 group-hover:scale-110 text-[#292725] group-hover:text-[#B86B7A]" />
               <span>LINKEDIN</span>
@@ -350,7 +382,7 @@ export const HeroSection: React.FC = () => {
               href="https://github.com/Urvity03"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-sans tracking-[0.18em] text-[#292725] hover:text-[#465640] uppercase nav-link-pop group cursor-pointer"
+              className="inline-flex items-center gap-1.5 min-h-[44px] py-1 text-xs font-sans tracking-[0.16em] sm:tracking-[0.18em] text-[#292725] hover:text-[#465640] uppercase nav-link-pop group cursor-pointer"
             >
               <GithubIcon size={14} className="transition-transform duration-250 group-hover:scale-110 text-[#292725] group-hover:text-[#465640]" />
               <span>GITHUB</span>
@@ -359,7 +391,7 @@ export const HeroSection: React.FC = () => {
 
             <a
               href="mailto:tyagiurvi26@gmail.com"
-              className="inline-flex items-center gap-1.5 text-xs font-sans tracking-[0.18em] text-[#292725] hover:text-[#B86B7A] uppercase nav-link-pop group cursor-pointer"
+              className="inline-flex items-center gap-1.5 min-h-[44px] py-1 text-xs font-sans tracking-[0.16em] sm:tracking-[0.18em] text-[#292725] hover:text-[#B86B7A] uppercase nav-link-pop group cursor-pointer"
             >
               <Mail size={14} className="transition-transform duration-250 group-hover:scale-110 text-[#292725] group-hover:text-[#B86B7A]" />
               <span>EMAIL ME</span>
@@ -368,7 +400,7 @@ export const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT COLUMN: Authentic Photo Cutout - Layer 3: translateZ(60px) rest, 90px hover pop */}
+        {/* RIGHT COLUMN: Authentic Photo Cutout (Tablet & Desktop: hidden on mobile, visible on md+) */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -384,12 +416,12 @@ export const HeroSection: React.FC = () => {
             rotateY: portraitRotateY,
             transformStyle: 'preserve-3d'
           }}
-          className="relative shrink-0 flex items-center justify-center pt-6 lg:pt-0 lg:mt-4 xl:mt-6 select-none pointer-events-auto cursor-pointer self-center lg:self-center will-change-transform"
+          className="hidden md:flex relative shrink-0 items-center justify-center md:pt-0 lg:mt-4 xl:mt-6 select-none pointer-events-auto cursor-pointer self-center will-change-transform max-w-full"
         >
           {/* Subtle pale pink circular atmospheric shape behind portrait */}
           <motion.div 
             style={{ x: pinkCircleX, transform: 'translateZ(-15px)' }}
-            className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[460px] lg:w-[510px] xl:w-[550px] h-[380px] sm:h-[460px] lg:h-[510px] xl:h-[550px] rounded-full bg-[radial-gradient(circle,rgba(243,199,209,0.11)_0%,rgba(243,199,209,0.08)_60%,rgba(243,199,209,0.02)_85%,transparent_100%)] blur-md pointer-events-none select-none z-0"
+            className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[340px] md:w-[380px] lg:w-[510px] xl:w-[550px] h-[340px] md:h-[380px] lg:h-[510px] xl:h-[550px] max-w-[85vw] max-h-[85vw] rounded-full bg-[radial-gradient(circle,rgba(243,199,209,0.11)_0%,rgba(243,199,209,0.08)_60%,rgba(243,199,209,0.02)_85%,transparent_100%)] blur-md pointer-events-none select-none z-0"
             aria-hidden="true"
           />
 
@@ -398,19 +430,19 @@ export const HeroSection: React.FC = () => {
             src={urviPortrait}
             alt="Urvi Tyagi"
             style={{ transform: 'translateZ(15px)' }}
-            className="relative z-10 w-[300px] sm:w-[380px] md:w-[430px] lg:w-[475px] xl:w-[495px] object-contain drop-shadow-none pointer-events-none"
+            className="relative z-10 w-[300px] md:w-[340px] lg:w-[475px] xl:w-[495px] max-w-[45vw] max-h-[85vh] object-contain drop-shadow-none pointer-events-none"
             loading="eager"
           />
 
           {/* Handwritten Editorial Accent to the right */}
           <motion.div 
             style={{ x: accentX, transform: 'translateZ(25px)' }}
-            className="hidden lg:block absolute -right-14 xl:-right-18 top-[38%] -translate-y-1/2 pointer-events-none select-none z-20"
+            className="absolute -right-6 md:-right-8 lg:-right-14 xl:-right-18 top-[32%] lg:top-[38%] -translate-y-1/2 pointer-events-none select-none z-20"
           >
             <img
               src={handwrittenAccent}
               alt="Same girl Bigger dreams"
-              className="w-[130px] lg:w-[145px] xl:w-[160px] object-contain drop-shadow-none"
+              className="w-[100px] md:w-[115px] lg:w-[145px] xl:w-[160px] object-contain drop-shadow-none"
             />
           </motion.div>
         </motion.div>
