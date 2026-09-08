@@ -1,7 +1,14 @@
 {
   "name": "urvi-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Personal portfolio of Urvi Tyagi — AI/ML Engineer & Computer Science, showcasing projects, skills, certifications, and open-source work.",
+  "author": "Urvi Tyagi <tyagiurvi26@gmail.com>",
+  "homepage": "https://portfolio-mu-rouge-31.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Urvity03/Portfolio.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

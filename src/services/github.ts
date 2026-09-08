@@ -176,7 +176,7 @@ export async function fetchGitHubDashboard(): Promise<GitHubDashboardData> {
       ],
       isLive: true,
     };
-  } catch (error) {
+  } catch {
     // Graceful fallback to verified architectural dataset
     return {
       profile: FALLBACK_PROFILE,
